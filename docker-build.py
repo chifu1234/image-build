@@ -288,6 +288,7 @@ class Builder(object):
 
         response = []
         print("  Docker build output:")
+        # extend for multiplatform
         for line in self.builder.api.build(fileobj=dockerfileobj, rm=True, custom_context=True):
             response.append(line)
             event = list(json_stream([line]))[0]
